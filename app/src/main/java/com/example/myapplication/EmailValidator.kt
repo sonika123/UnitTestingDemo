@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import java.util.regex.Pattern
 
@@ -15,8 +16,13 @@ class EmailValidator : AppCompatActivity(){
     )
 
 
-
     fun  isValidEmail(email : CharSequence) : Boolean {
-        return email != null && email_pattern?.matcher(email)?.matches()!!;
+//        return email != null && email_pattern?.matcher(email)?.matches()!!;
+        if (email_pattern?.matcher(email)?.matches()!!){
+            Log.v("test", "email pass")
+            return true
+        }
+        else
+            return false
     }
 }
